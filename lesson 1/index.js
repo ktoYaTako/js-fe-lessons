@@ -35,7 +35,6 @@ let mainList = {
             } else {
                 i = i - 1
             }
-        
         }
     },
     workTime: function workTime (time) {
@@ -63,15 +62,24 @@ let mainList = {
           let name = prompt('Укажите имя сотрудника', '');
           mainList.employers[i] = name
         }
-      },
-      chooseShopItem: function chooseShopItem () {
+    },
+    chooseShopItem: function chooseShopItem () {
         let items = prompt('Перечислите через запятую товары', '');
 
         mainList.shopItems = items.split(',');
         mainList.shopItems.push(prompt('Подождите еще ',''))
         mainList.shopGoods.sort();
-
-      }
+    },
+    canBuy: function canBuy () {
+        mainList.shopGoods.forEach((elementItems, index) => {
+            alert((index + 1) + '. У нас вы можете купить: ' + elementItems);
+        })
+    },
+    includes: function includes () {
+        for (let value of mainList.shopItems) {
+            console.log(`Наш магазин включает в себя ${value}`)
+        }
+    }
 }
 console.log(mainList)
 
